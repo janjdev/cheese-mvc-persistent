@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: head"></head>
+
+<body class="container">
+
+<h1 class="title" th:text="${title}">Default Title</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+<section>
+
+<ul class="list-group">
+    <li class="list-group-item" th:each="category: ${categories}" >
+        <a th:href="'cheese/category/' +${category.getId()}" th:text="${category.getName()}"></a>
+         <span class="badge" th:text="${category.getCheeses().size()}"></span>
+    </li>
+</ul>
+<a href="/category/add">Add Category</a>
+</section>
+</body>
+</html>

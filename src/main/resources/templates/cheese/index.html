@@ -8,6 +8,7 @@
 
 <nav th:replace="fragments :: navigation"></nav>
 
+<section>
 <p th:unless="${cheeses} and ${cheeses.size()}">no cheese :(</p>
 
 
@@ -22,10 +23,14 @@
     <tr th:each="cheese : ${cheeses}">
         <td th:text="${cheese.name}"></td>
         <td th:text="${cheese.description}"></td>
-        <td th:text="${cheese.type.name}"></td>
+        <td th:text="${cheese.category.name}"></td>
     </tr>
 
 </table>
 
+<br/>
+<a href="/cheese/add">Add</a> |
+<a href="/cheese/remove">Remove</a>
+</section>
 </body>
 </html>
